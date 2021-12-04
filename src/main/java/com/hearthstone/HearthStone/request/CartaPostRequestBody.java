@@ -1,36 +1,30 @@
-package com.hearthstone.HearthStone.model;
+package com.hearthstone.HearthStone.request;
 
-import com.hearthstone.HearthStone.exception.BadRequestException;
+import com.hearthstone.HearthStone.model.ClasseCarta;
+import com.hearthstone.HearthStone.model.TipoCarta;
 
-public class Carta {
-    private int id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+
+public class CartaPostRequestBody {
+    @NotEmpty(message = "O nome da carta não pode ser vazio")
     private String nome;
+
+    @NotEmpty(message = "O descrição da carta não pode ser vazia")
     private String descricao;
+
+    @Min(value = 0, message = "A ataque pode ser no minimo 0")
+    @Max(value = 10, message = "A ataque pode ser no maximo 10")
     private int ataque;
+
+    @Min(value = 0, message = "A defesa pode ser no minimo 0")
+    @Max(value = 10, message = "A defesa pode ser no maximo 10")
     private int defesa;
+
     private TipoCarta tipo;
+
     private ClasseCarta classe;
-
-    public Carta(int id, String nome, String descricao, int ataque, int defesa, TipoCarta tipo, ClasseCarta classe) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.ataque = ataque;
-        this.defesa = defesa;
-        this.tipo = tipo;
-        this.classe = classe;
-    }
-
-    public Carta() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
