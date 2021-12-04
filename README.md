@@ -12,6 +12,6 @@ As rotas estão distribuidas da seguinte forma.
 
 Esses são as pesquisas disponiveis
 - GET em "/carta/id/{id}" passando o id diretamente na URL(Sem ser por parametro) -> Pesquisa uma carta por id.
-- GET em "/carta/nome/{nome}" passando o nome diretamente na URL(Sem ser por parametro) -> Pesquisa uma carta por nome.
-- GET em "/carta/tipo/{tipo}" passando o tipo diretamente na URL(Sem ser por parametro) -> Pesquisa uma carta por tipo(Tipo precisa ser "CRIATURA ou MAGIA").
-- GET em "/carta/classe/{classe}" passando a classe diretamente na URL(Sem ser por parametro) -> Pesquisa uma carta por classe(Classe precisa ser "MAGO, PALADINO, CACADOR, DRUIDA, QUALQUER").
+- GET em "/carta/nome/{nome}" passando o nome diretamente na URL(Sem ser por parametro) -> Pesquisa as cartas por nome.
+- GET em "/carta/tipo/{tipo}" passando o tipo diretamente na URL(Sem ser por parametro) -> Pesquisa as cartas por tipo(Tipo precisa ser "CRIATURA ou MAGIA").
+- GET em "/carta/classe/{classe}" passando a classe diretamente na URL(Sem ser por parametro) -> Pesquisa as cartas por classe(Classe precisa ser "MAGO, PALADINO, CACADOR, DRUIDA, QUALQUER").
