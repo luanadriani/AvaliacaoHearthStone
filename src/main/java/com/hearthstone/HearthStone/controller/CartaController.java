@@ -1,17 +1,14 @@
 package com.hearthstone.HearthStone.controller;
 
-import com.hearthstone.HearthStone.exception.BadRequestException;
 import com.hearthstone.HearthStone.model.Carta;
-import com.hearthstone.HearthStone.model.ClasseCarta;
-import com.hearthstone.HearthStone.model.TipoCarta;
+import com.hearthstone.HearthStone.request.CartaPostRequestBody;
 import com.hearthstone.HearthStone.service.CartaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
+import javax.validation.Valid;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("carta")
@@ -23,7 +20,7 @@ public class CartaController {
         return ResponseEntity.ok(cartaService.listAll());
     }
 
-    @GetMapping(path = ("/{id}"))
+    @GetMapping(path = "/id/{id}")
     public ResponseEntity<Carta> findById(@PathVariable Integer id){
         return ResponseEntity.ok(cartaService.findById(id));
     }
@@ -44,8 +41,8 @@ public class CartaController {
     }
 
     @PostMapping
-    public ResponseEntity<Carta> save(@RequestBody Carta carta){
-        return new ResponseEntity<>(cartaService.save(carta), HttpStatus.CREATED);
+    public ResponseEntity<Carta> save(@RequestBody @Valid CartaPostRequestBody cartaPostRequestBody){
+        return new ResponseEntity<>(cartaService.save(cartaPostRequestBody), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = ("/{id}"))
